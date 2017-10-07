@@ -10,11 +10,28 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    <div class="Header">
+        <asp:ContentPlaceHolder id="ContentPlaceHolderHeader" runat="server">
+            <span class="HeaderTitle">User's Library Collection</span>
+            <span class="HeaderNavigation">
+                <asp:SiteMapPath ID="SiteMapPathHeaderNav" runat="server"></asp:SiteMapPath>
+                <asp:Menu ID="MenuHeaderNav" runat="server"></asp:Menu>
+            </span>
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <div class="Content">
+        <asp:ContentPlaceHolder id="ContentPlaceHolderContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
+
+    <div class="Footer">
+        <asp:ContentPlaceHolder id="ContentPlaceHolderFooter" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
     </form>
 </body>
 </html>
