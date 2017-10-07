@@ -11,14 +11,11 @@
 <body>
     <form id="form1" runat="server">
     <div class="Header">
-        <asp:ContentPlaceHolder id="ContentPlaceHolderHeader" runat="server">
-            <span class="HeaderTitle">User's Library Collection</span>
-            <span class="HeaderNavigation">
-                <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
-                <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav"></asp:Menu>
-            
-            </span>
-        </asp:ContentPlaceHolder>
+        <span class="HeaderTitle">User's Library Collection</span>
+        <span class="HeaderNavigation">
+            <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
+            <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav"></asp:Menu>           
+        </span>
     </div>
 
     <div class="Content">
@@ -28,9 +25,7 @@
     </div>
 
     <div class="Footer">
-        <asp:ContentPlaceHolder id="ContentPlaceHolderFooter" runat="server">
         
-        </asp:ContentPlaceHolder>
     </div>
 
     </form>
