@@ -14,8 +14,9 @@
         <asp:ContentPlaceHolder id="ContentPlaceHolderHeader" runat="server">
             <span class="HeaderTitle">User's Library Collection</span>
             <span class="HeaderNavigation">
-                <asp:SiteMapPath ID="SiteMapPathHeaderNav" runat="server"></asp:SiteMapPath>
-                <asp:Menu ID="MenuHeaderNav" runat="server"></asp:Menu>
+                <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
+                <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav"></asp:Menu>
+            
             </span>
         </asp:ContentPlaceHolder>
     </div>
