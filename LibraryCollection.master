@@ -14,7 +14,10 @@
         <span class="HeaderTitle">User's Library Collection</span>
         <span class="HeaderNavigation">
             <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
-            <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav"></asp:Menu>           
+            <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav" Font-Size="Large" Orientation="Horizontal">
+                <StaticHoverStyle ForeColor="#AB9F01" />
+                <StaticMenuItemStyle ForeColor="#DCD468" HorizontalPadding="30px" />
+            </asp:Menu>           
         </span>
     </div>
 
