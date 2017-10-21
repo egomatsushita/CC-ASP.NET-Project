@@ -9,6 +9,9 @@ public partial class AddBooks : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //bool isLandedFriend;
+        //ddlLandedFriend.SelectedItem.Value;
+        //ddlLandedFriend.ch
+            
     }
 }
