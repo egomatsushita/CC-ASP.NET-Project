@@ -1,8 +1,10 @@
-﻿body {
+﻿/* BODY */
+body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12px;
 }
 
+/* HEADER */ 
 .Header {
     top: 0px;
     left: 0px;
@@ -36,4 +38,10 @@
     margin: 10px 30px;
 }
 
-
+/* Content */
+.Content {
+    position: absolute;
+    top: 111px;
+    left: 100px;
+    right: 100px;
+}
