@@ -9,6 +9,21 @@ public partial class LibraryCollection : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        HttpCookie userSession;
+        userSession = Request.Cookies["UserID"];
 
+        if (userSession == null)
+        {
+            userSession = new HttpCookie("UserID", "John Doe");
+            {
+                userSession.Expires = DateTime.Now.AddMonths(1);
+            }
+            Response.Cookies.Add(userSession);
+            lblUserSession.Text = "Welcome, " + userSession.Value;
+        }
+        else
+        {
+            lblUserSession.Text = "Welcome back, " + userSession.Value;
+        }
     }
 }

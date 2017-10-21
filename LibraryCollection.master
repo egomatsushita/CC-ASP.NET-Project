@@ -10,23 +10,34 @@
 </head>
 <body>
     <form id="form1" runat="server">
+   
+    <!-- Logo & Navigation -->
     <div class="Header">
-        <span class="HeaderTitle">User's Library Collection</span>
+        <span class="HeaderTitle">Library Collection</span>
         <span class="HeaderNavigation">
             <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
             <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav" Font-Size="Large" Orientation="Horizontal">
                 <StaticHoverStyle ForeColor="#DCD468" />
                 <StaticMenuItemStyle ForeColor="#AB9F01" HorizontalPadding="30px" />
             </asp:Menu>           
+        </span>      
+    </div >  
+
+    <!-- User Session -->
+    <div class="UserSession">
+        <span class="Username">
+            <asp:Label ID="lblUserSession" runat="server" Text="" ></asp:Label>
         </span>
     </div>
-
+    
+    <!-- Content -->
     <div class="Content">
         <asp:ContentPlaceHolder id="ContentPlaceHolderContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
 
+    <!-- Footer -->
     <div class="Footer">
         
     </div>
