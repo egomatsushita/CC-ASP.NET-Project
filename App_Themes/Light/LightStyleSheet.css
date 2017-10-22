@@ -31,11 +31,13 @@ body {
     top: 76px;
     left: 0;
     right: 0;
+    background-color: #AB9F01;
 }
 
 .username {
     float: right;
     margin: 10px 30px;
+    color: #0B3306;
 }
 
 /* >>>>>>>>>>>>>>>>>>>> CONTENT <<<<<<<<<<<<<<<<<<<< */
@@ -44,6 +46,12 @@ body {
     top: 111px;
     left: 100px;
     right: 100px;
+}
+
+.addBooks_form {
+    margin: 0 auto;
+    display: block;
+    width: 60%;
 }
 
 .label_topped {
