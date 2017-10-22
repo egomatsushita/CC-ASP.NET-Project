@@ -63,6 +63,10 @@
             Comments:<br />
             <asp:textbox ID="txtComments" runat="server" Columns="40" Rows="4" TextMode="MultiLine"></asp:textbox>
         </p>
+
+        <!-- Save & Cancel -->
+        <asp:Button ID="btnSave" runat="server" Text="Save" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
     </div>     
 </asp:Content>
 
