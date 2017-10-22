@@ -49,3 +49,12 @@ body {
 .label_topped {
     vertical-align: top;
 }
+
+.col_1_2 {
+    display: inline-block;
+    width: 120px;
+}
+
+
+
+
