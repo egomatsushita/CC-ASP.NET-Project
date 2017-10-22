@@ -12,9 +12,9 @@
     <form id="form1" runat="server">
    
     <!-- Logo & Navigation -->
-    <div class="Header">
-        <span class="HeaderTitle">Library Collection</span>
-        <span class="HeaderNavigation">
+    <div class="header">
+        <span class="header_title">Library Collection</span>
+        <span class="header_navigation">
             <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
             <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav" Font-Size="Large" Orientation="Horizontal">
                 <StaticHoverStyle ForeColor="#DCD468" />
@@ -24,21 +24,21 @@
     </div >  
 
     <!-- User Session -->
-    <div class="UserSession">
-        <span class="Username">
+    <div class="user_session">
+        <span class="username">
             <asp:Label ID="lblUserSession" runat="server" Text="" ></asp:Label>
         </span>
     </div>
     
     <!-- Content -->
-    <div class="Content">
+    <div class="content">
         <asp:ContentPlaceHolder id="ContentPlaceHolderContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
 
     <!-- Footer -->
-    <div class="Footer">
+    <div class="footer">
         
     </div>
 

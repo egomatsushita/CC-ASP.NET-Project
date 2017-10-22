@@ -71,33 +71,12 @@
         </span>
     </p>
     <p>
-        <span class="col_1/2">
+        <span class="col_1/2 label_topped">
             Comments:
         </span>
         <span class="col_2/2">
             <asp:textbox ID="txtComments" runat="server" Columns="40" Rows="4" TextMode="MultiLine"></asp:textbox>
         </span>
-    </p>
-
-
-        
-        
-        
-        
-        
-        
-        
-    
-    </span>
-
-
-        
-        
-        
-        
-        
-        
-        
-    
+    </p>        
 </asp:Content>
 
