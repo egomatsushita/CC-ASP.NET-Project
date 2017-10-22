@@ -66,7 +66,7 @@
 
         <!-- Save & Cancel -->
         <asp:Button ID="btnSave" runat="server" Text="Save" />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
     </div>     
 </asp:Content>
 
