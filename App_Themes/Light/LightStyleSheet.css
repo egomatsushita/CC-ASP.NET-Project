@@ -51,17 +51,14 @@ body {
 .addBooks_form {
     margin: 0 auto;
     display: block;
-    width: 60%;
+    width: 30%;
 }
 
 .label_topped {
     vertical-align: top;
 }
 
-.col_1_2 {
-    display: inline-block;
-    width: 120px;
-}
+
 
 
 
