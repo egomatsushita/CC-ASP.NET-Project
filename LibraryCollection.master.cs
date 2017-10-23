@@ -7,6 +7,13 @@ using System.Web.UI.WebControls;
 
 public partial class LibraryCollection : System.Web.UI.MasterPage
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+       
+
+
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpCookie userSession;
@@ -25,5 +32,10 @@ public partial class LibraryCollection : System.Web.UI.MasterPage
         {
             lblUserSession.Text = "Welcome back, " + userSession.Value;
         }
+
+
+        
+
+
     }
 }
