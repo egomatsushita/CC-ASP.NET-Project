@@ -16,6 +16,6 @@ public class Book
     public string Author { get; set; }
     public string ISBN { get; set; }
     public string Genre { get; set; }
-    public string NoPages { get; set; }
+    public int NoPages { get; set; }
 
 }

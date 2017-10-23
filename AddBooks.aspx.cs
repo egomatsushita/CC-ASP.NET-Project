@@ -37,4 +37,30 @@ public partial class AddBooks : System.Web.UI.Page
         }
 
     }
+
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        if (Page.IsValid)
+        {
+            // create a new book
+            Book newBook = new Book()
+            {
+                Name = wucNameAuthorISBN.Name,
+                Author = wucNameAuthorISBN.Author,
+                ISBN = wucNameAuthorISBN.ISBN,
+                Genre = txtGenre.Text,
+                NoPages = Convert.ToInt32(txtNoPages.Text)
+            };
+
+            // get the bookRepository if exists
+            BookRepository bookList = Session["bookList"] as BookRepository;
+            if (bookList == null)
+            {
+                bookList = new BookRepository();
+                Session["bookList"] = bookList;
+            }
+
+            bookList.Add(newBook);
+        }
+    }
 }
