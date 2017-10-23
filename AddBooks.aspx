@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Add a Book" Language="C#" MasterPageFile="~/LibraryCollection.master" AutoEventWireup="true" CodeFile="AddBooks.aspx.cs" Inherits="AddBooks" %>
+<%@ Register TagPrefix="wuc" TagName="NameAuthorISBN" Src="~/WucNameAuthorISBN.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -6,26 +7,8 @@
     <div class="addBooks_form">
         <h1>Let's add a new book...</h1>
 
-        <!-- Name -->
-        <p>
-            Name: <br />
-            <asp:textbox ID="txtName" runat="server"></asp:textbox>
-            <asp:requiredfieldvalidator ID="nameReq" runat="server" errormessage="<br />You must enter a name!" ControlToValidate="txtName" SetFocusOnError="True"></asp:requiredfieldvalidator>
-        </p>
-        
-        <!-- Author(s) -->
-        <%-->>>>>>>>>ADD MORE TEXTBOX IF THERE ARE MORE AUTHORS<<<<<<<<<<--%>
-        <p>
-            Author(s): <br />
-            <asp:textbox ID="txtAuthor" runat="server"></asp:textbox>
-            <asp:requiredfieldvalidator ID="authorReq" runat="server" errormessage="<br />You must enter an author!" ControlToValidate="txtAuthor" SetFocusOnError="True"></asp:requiredfieldvalidator>
-        </p>
-        
-        <!-- ISBN -->
-        <p>
-            ISBN: <br />
-            <asp:textbox ID="txtISBN" runat="server"></asp:textbox>
-        </p>
+        <!-- Web User Control -->
+        <wuc:NameAuthorISBN ID="wucNameAuthorISBN" runat="server"/>
         
         <!-- Genre -->
         <p>
