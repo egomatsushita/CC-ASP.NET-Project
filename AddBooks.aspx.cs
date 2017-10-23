@@ -48,9 +48,12 @@ public partial class AddBooks : System.Web.UI.Page
                 Session["bookList"] = bookList;
             }
 
+            // add a new book to the bookRepository
             bookList.Add(newBook);
 
-            
+            // Pop up an alert box with a successful message
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You added a new book successfully')", true);
+
             // Delete the content of all text fields after the newbook added
             ClearTextField();
         }
@@ -58,19 +61,21 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void SwitchVisibilityFriendName(object sender, EventArgs e)
     {
-        if (ddlLandedFriend.SelectedValue == "no")
+        // Make friend's name textbox, label, and validation visible if a user choose yes 
+        if (ddlLandedFriend.SelectedValue == "yes")
+        {
+            lblFriendName.Visible = true;
+            txtFriendName.Visible = true;
+            friendNameReq.Visible = true;           
+        }
+        else
         {
             lblFriendName.Visible = false;
             txtFriendName.Visible = false;
             friendNameReq.Visible = false;
         }
-        else
-        {
-            lblFriendName.Visible = true;
-            txtFriendName.Visible = true;
-            friendNameReq.Visible = true;
-        }
 
+        // Enable friend's name validation if a user choose yes
         if (ddlLandedFriend.SelectedValue == "yes")
         {
             friendNameReq.Enabled = true;
