@@ -27,18 +27,19 @@
         <!-- Landed to a friend -->
         <p>
             Landed to a friend:<br />
-            <asp:dropdownlist ID="ddlLandedFriend" runat="server">
+            <asp:dropdownlist ID="ddlLandedFriend" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SwitchVisibilityFriendName">
                 <asp:ListItem Value="yes">Yes</asp:ListItem>
-                <asp:ListItem Value="no">No</asp:ListItem>
+                <asp:ListItem Value="no" Selected="True">No</asp:ListItem>
             </asp:dropdownlist>
         </p>
         
         <!-- Friend's Name -->
         <p>
-            Friend's Name:<br />
-            <asp:textbox ID="txtFriendName" runat="server"></asp:textbox>
-            <asp:requiredfieldvalidator ID="friendNameReq" runat="server" errormessage="<br />You must enter the name of a friend!" ControlToValidate="txtFriendName" SetFocusOnError="True"></asp:requiredfieldvalidator>
+            <asp:Label ID="lblFriendName" runat="server" Text="Friend's Name:" Visible="False"></asp:Label><br />
+            <asp:textbox ID="txtFriendName" runat="server" Visible="False"></asp:textbox>
+            <asp:requiredfieldvalidator ID="friendNameReq" runat="server" errormessage="<br />You must enter the name of a friend!" ControlToValidate="txtFriendName" SetFocusOnError="True" Enabled="False"></asp:requiredfieldvalidator>
         </p>
+
         <%-->>>If the book is landed to a friend the “Name of a friend” field is mandatory<<<--%>
         
         <!-- Comments -->

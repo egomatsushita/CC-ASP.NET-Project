@@ -17,33 +17,13 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-            
+        
+      
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        // access controls of a web use control
-        TextBox txtName = (TextBox)wucNameAuthorISBN.FindControl("txtName");
-        TextBox txtAuthor = (TextBox)wucNameAuthorISBN.FindControl("txtAuthor");
-        TextBox txtISBN = (TextBox)wucNameAuthorISBN.FindControl("txtISBN");
-
-        TextBox[] textBoxList = { txtName,
-                                  txtAuthor,
-                                  txtISBN,
-                                  txtComments,
-                                  txtFriendName,
-                                  txtGenre,
-                                  txtNoPages};
-
-        foreach (TextBox aTextBox in textBoxList)
-        {
-            // clear the text property of a textbox if the textbox exist
-            if (aTextBox != null)
-            {
-                aTextBox.Text = String.Empty;
-            }
-        }
-
+        ClearTextField();
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
@@ -69,6 +49,60 @@ public partial class AddBooks : System.Web.UI.Page
             }
 
             bookList.Add(newBook);
+
+            
+            // Delete the content of all text fields after the newbook added
+            ClearTextField();
+        }
+    }
+
+    protected void SwitchVisibilityFriendName(object sender, EventArgs e)
+    {
+        if (ddlLandedFriend.SelectedValue == "no")
+        {
+            lblFriendName.Visible = false;
+            txtFriendName.Visible = false;
+            friendNameReq.Visible = false;
+        }
+        else
+        {
+            lblFriendName.Visible = true;
+            txtFriendName.Visible = true;
+            friendNameReq.Visible = true;
+        }
+
+        if (ddlLandedFriend.SelectedValue == "yes")
+        {
+            friendNameReq.Enabled = true;
+        }
+        else
+        {
+            friendNameReq.Enabled = false;
+        }
+    }
+
+    protected void ClearTextField()
+    {
+        // access controls of a web use control
+        TextBox txtName = (TextBox)wucNameAuthorISBN.FindControl("txtName");
+        TextBox txtAuthor = (TextBox)wucNameAuthorISBN.FindControl("txtAuthor");
+        TextBox txtISBN = (TextBox)wucNameAuthorISBN.FindControl("txtISBN");
+
+        TextBox[] textBoxList = { txtName,
+                                  txtAuthor,
+                                  txtISBN,
+                                  txtComments,
+                                  txtFriendName,
+                                  txtGenre,
+                                  txtNoPages};
+
+        foreach (TextBox aTextBox in textBoxList)
+        {
+            // clear the text property of a textbox if the textbox exist
+            if (aTextBox != null)
+            {
+                aTextBox.Text = String.Empty;
+            }
         }
     }
 }

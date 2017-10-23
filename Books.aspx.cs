@@ -8,6 +8,14 @@ using System.Web.UI.WebControls;
 
 public partial class Books : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Request.Cookies["Theme"] != null)
+        {
+            this.Theme = Session["Theme"] as String;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         BookRepository bookList = Session["bookList"] as BookRepository;
@@ -19,7 +27,7 @@ public partial class Books : System.Web.UI.Page
         else
         {
             StringBuilder table = new StringBuilder();
-            table.Append("<table class=\"list_table\"><td><td>Name</td><td>Author</td><td>ISBN</td></td>");
+            table.Append("<table class=\"list_table\"><tr><td>Name</td><td>Author</td><td>ISBN</td></tr>");
 
             foreach (Book aBook in bookList.GetAllBooks())
             {
