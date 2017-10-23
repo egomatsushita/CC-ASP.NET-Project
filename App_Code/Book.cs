@@ -10,8 +10,12 @@ public class Book
 {
     public Book()
     {
-        //
-        // TODO: Add constructor logic here
-        //
     }
+
+    public string Name { get; set; }
+    public string Author { get; set; }
+    public string ISBN { get; set; }
+    public string Genre { get; set; }
+    public string NoPages { get; set; }
+
 }
