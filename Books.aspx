@@ -3,5 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">
+    <div>
+        <asp:literal ID="list" runat="server"></asp:literal>
+    </div>
 </asp:Content>
 
