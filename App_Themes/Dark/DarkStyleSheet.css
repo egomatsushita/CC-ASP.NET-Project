@@ -8416,3 +8416,11 @@ a.list-group-item-danger.active {
 }
 
 /* >>>>>>>>>> CONTENT <<<<<<<<<< */
+.margin-top-bottom-50 {
+    margin: 50px 0;
+}
+
+.btn-position {
+    float: right;
+    margin-left: 10px;
+}

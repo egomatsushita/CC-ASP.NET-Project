@@ -21,7 +21,7 @@ public partial class AddBooks : System.Web.UI.Page
       
     }
 
-    protected void btnCancel_Click(object sender, EventArgs e)
+    protected void btnClear_Click(object sender, EventArgs e)
     {
         ClearTextField();
     }
