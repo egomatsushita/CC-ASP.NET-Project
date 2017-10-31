@@ -16,34 +16,47 @@
 </head>
 <body>
     <form id="form1" runat="server">
-   
-    <!-- Logo & Navigation -->
-    <div class="header">
-        <span class="header_title">Library Collection</span>
-        <span class="header_navigation">
-            <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
-            <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav" Font-Size="Large" Orientation="Horizontal">
-                <StaticHoverStyle ForeColor="#DCD468" />
-                <StaticMenuItemStyle ForeColor="#AB9F01" HorizontalPadding="30px" />
-            </asp:Menu>           
-        </span>      
-    </div >  
-
-    <!-- User Session -->
-    <div class="user_session">
-        <span class="username">
-            <asp:Label ID="lblUserSession" runat="server" Text="" ></asp:Label>
-        </span>
-    </div>
     
-    <!-- Content -->
-    <div class="content">
+    <!-- LOGO + NAVIGATION -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">     
+        <div class="container">       
+            
+            <!-- LOGO -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="._toggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="./Default.aspx" class="navbar-brand" >Library Collection</a>           
+            </div >
+            
+            <!-- NAVIGATION -->
+            <div class="navbar-right">
+                <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
+                <asp:Menu ID="MenuHeaderNav" runat="server" DataSourceID="SiteMapDataSourceHeadeNav" 
+                            CssClass="navbar-collapse collapse cancel-inline-float _toggle">  
+                    <StaticMenuStyle CssClass="nav navbar-nav cancel-inline-float" />
+                </asp:Menu>
+            </div>   
+            
+            <!-- USER SESSION -->
+            <div class="navbar-nav navbar-collapse collapse _toggle">
+                <div class="navbar-text label">
+                    <asp:Label ID="lblUserSession" runat="server" ></asp:Label>  <!-- CssClass="session-label" Font-Size="12px" -->
+                </div>                  
+            </div>              
+        </div> <!-- end .container -->
+    </nav>
+    
+    <!-- CONTENT -->
+    <div id="master-container" class="container">
         <asp:ContentPlaceHolder id="ContentPlaceHolderContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <div class="footer">
         
     </div>
