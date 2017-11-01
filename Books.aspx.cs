@@ -22,12 +22,13 @@ public partial class Books : System.Web.UI.Page
 
         if (bookList == null)
         {
-            list.Text = "<h1>There is no book in the list!</h1>";
+            list.Text = "<h3 class=\"margin-top-bottom-50\">There is no book in the collection!</h3>";
         }
         else
         {
             StringBuilder table = new StringBuilder();
-            table.Append("<table class=\"list_table\"><tr><td>Name</td><td>Author</td><td>ISBN</td></tr>");
+            table.Append("<h3 class=\"margin-top-bottom-50\">Your Collection</h3>");
+            table.Append("<table class=\"table table-responsive table-striped thead-dark\"><thead class=\"thead-dark\"><tr class=\"bg-primary\"><th>Name</th><th>Author</th><th>ISBN</th></tr></thead>");
 
             foreach (Book aBook in bookList.GetAllBooks())
             {
