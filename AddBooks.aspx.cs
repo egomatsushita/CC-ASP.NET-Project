@@ -17,8 +17,8 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-      
+
+
     }
 
     protected void btnClear_Click(object sender, EventArgs e)
@@ -51,8 +51,16 @@ public partial class AddBooks : System.Web.UI.Page
             // add a new book to the bookRepository
             bookList.Add(newBook);
 
-            // Pop up an alert box with a successful message
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You added a new book successfully')", true);
+            // Pop up an bootstrap modal with a successful message
+            ScriptManager.RegisterStartupScript(this,
+                                                this.GetType(),
+                                                "ServerControlScript",
+                                                "<script>" +
+                                                  "$(document).ready(function() {" +
+                                                    "$(\"#popup_success\").modal(\"show\");" +
+                                                  "}); " +
+                                                "</script>",
+                                                false);
 
             // Delete the content of all text fields after the newbook added
             ClearTextField();
@@ -66,7 +74,7 @@ public partial class AddBooks : System.Web.UI.Page
         {
             lblFriendName.Visible = true;
             txtFriendName.Visible = true;
-            friendNameReq.Visible = true;           
+            friendNameReq.Visible = true;
         }
         else
         {

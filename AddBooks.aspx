@@ -40,8 +40,6 @@
                 <asp:textbox ID="txtFriendName" runat="server" Visible="False" CssClass="form-control"></asp:textbox>
                 <asp:requiredfieldvalidator ID="friendNameReq" runat="server" errormessage="<br />You must enter the name of a friend!" ControlToValidate="txtFriendName" SetFocusOnError="True" Enabled="False"></asp:requiredfieldvalidator>
             </p>
-
-            <%-->>>If the book is landed to a friend the “Name of a friend” field is mandatory<<<--%>
         
             <!-- Comments -->
             <p>
@@ -50,11 +48,27 @@
             </p>
 
             <!-- Save & Cancel -->
-            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn btn-primary btn-xs btn-xs btn-position" />
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn btn-primary btn-xs btn-xs btn-position"/>
             <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CssClass="btn btn-danger btn-xs btn-position" />
 
             <div class="clearfix"></div>
         </div>  
     </div>   
+
+    <!--BOOTSTRAP MODAL-->
+    <div class="modal" id="popup_success">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>  
+                    <h3 class="modal-title">Success!!!</h3>
+                </div>
+                <div class="modal-body">
+                    <p>You added a new book!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 </asp:Content>
 
