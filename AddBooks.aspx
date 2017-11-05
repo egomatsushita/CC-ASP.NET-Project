@@ -49,7 +49,7 @@
 
             <!-- Save & Cancel -->
             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="btn btn-primary btn-xs btn-xs btn-position"/>
-            <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CssClass="btn btn-danger btn-xs btn-position" />
+            <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" CssClass="btn btn-danger btn-xs btn-position" />
 
             <div class="clearfix"></div>
         </div>  

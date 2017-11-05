@@ -8,7 +8,6 @@
 </p>
         
 <!-- Author(s) -->
-<%-->>>>>>>>>ADD MORE TEXTBOX IF THERE ARE MORE AUTHORS<<<<<<<<<<--%>
 <p>
     Author(s): <br />
     <asp:textbox ID="txtAuthor" runat="server" CssClass="form-control"></asp:textbox>

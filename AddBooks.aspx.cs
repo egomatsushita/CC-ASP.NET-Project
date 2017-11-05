@@ -96,6 +96,9 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void ClearTextField()
     {
+        noPagesReq.Enabled = false;
+        friendNameReq.Enabled = false;
+
         // access controls of a web use control
         TextBox txtName = (TextBox)wucNameAuthorISBN.FindControl("txtName");
         TextBox txtAuthor = (TextBox)wucNameAuthorISBN.FindControl("txtAuthor");
@@ -111,8 +114,8 @@ public partial class AddBooks : System.Web.UI.Page
 
         foreach (TextBox aTextBox in textBoxList)
         {
-            // clear the text property of a textbox if the textbox exist
-            if (aTextBox != null)
+            // clear the text property of a textbox if the textbox exist       
+            if (aTextBox.Text != "")
             {
                 aTextBox.Text = String.Empty;
             }
