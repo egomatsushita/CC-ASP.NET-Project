@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">   
-    <div class="col-sm-offset-1 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-8">
         <asp:literal ID="list" runat="server"></asp:literal>
     </div>
 </asp:Content>

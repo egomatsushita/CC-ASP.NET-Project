@@ -6,7 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">
     <div class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6">
         <div class="form-group">
-            <h3 class="margin-top-bottom-50">Let's add a new book...</h3>
+            <h3 class="h3-title">Let's add a new book...</h3>
 
             <!-- Web User Control -->
             <wuc:NameAuthorISBN ID="wucNameAuthorISBN" runat="server"/>
