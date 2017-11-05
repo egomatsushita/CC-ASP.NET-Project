@@ -24,6 +24,8 @@ public partial class AddBooks : System.Web.UI.Page
     protected void btnClear_Click(object sender, EventArgs e)
     {
         ClearTextField();
+
+        ReturnDDLtoDefaultView();
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
@@ -64,12 +66,19 @@ public partial class AddBooks : System.Web.UI.Page
 
             // Delete the content of all text fields after the newbook added
             ClearTextField();
+
+            ReturnDDLtoDefaultView();
         }
     }
 
-    protected void SwitchVisibilityFriendName(object sender, EventArgs e)
+    protected void SwitchFriendNameVisibility(object sender, EventArgs e)
     {
-        // Make friend's name textbox, label, and validation visible if a user choose yes 
+        ControlFriendNameVisibility();
+    }
+
+    protected void ControlFriendNameVisibility()
+    {
+        // Make visible friend's name textbox, label, and validation if a user choose yes 
         if (ddlLandedFriend.SelectedValue == "yes")
         {
             lblFriendName.Visible = true;
@@ -96,9 +105,6 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void ClearTextField()
     {
-        noPagesReq.Enabled = false;
-        friendNameReq.Enabled = false;
-
         // access controls of a web use control
         TextBox txtName = (TextBox)wucNameAuthorISBN.FindControl("txtName");
         TextBox txtAuthor = (TextBox)wucNameAuthorISBN.FindControl("txtAuthor");
@@ -120,5 +126,17 @@ public partial class AddBooks : System.Web.UI.Page
                 aTextBox.Text = String.Empty;
             }
         }
+    }
+
+    protected void ReturnDDLtoDefaultView()
+    {
+        // Set "No" to landed to a friend dropdown list
+        if (ddlLandedFriend.Items[0].Selected)
+        {
+            ddlLandedFriend.Items[0].Selected = false;
+            ddlLandedFriend.Items[1].Selected = true;
+        }
+
+        ControlFriendNameVisibility();
     }
 }

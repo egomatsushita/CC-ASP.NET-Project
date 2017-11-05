@@ -28,7 +28,7 @@
             <!-- Landed to a friend -->
             <p>
                 Landed to a friend:<br />
-                <asp:dropdownlist ID="ddlLandedFriend" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SwitchVisibilityFriendName" CssClass="form-control">
+                <asp:dropdownlist ID="ddlLandedFriend" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SwitchFriendNameVisibility" CssClass="form-control">
                     <asp:ListItem Value="yes">Yes</asp:ListItem>
                     <asp:ListItem Value="no" Selected="True">No</asp:ListItem>
                 </asp:dropdownlist>
