@@ -1,4 +1,9 @@
-﻿<%@ Page Title="Books" Language="C#" MasterPageFile="~/LibraryCollection.master" AutoEventWireup="true" CodeFile="Books.aspx.cs" Inherits="Books" %>
+﻿<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>
+
+<%@ Page Title="Books" Language="C#" MasterPageFile="~/LibraryCollection.master" AutoEventWireup="true" CodeFile="Books.aspx.cs" Inherits="Books" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -8,3 +13,7 @@
     </div>
 </asp:Content>
 
+<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>

@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//*******************************
+//* Name: Eduardo Go Matsushita *
+//* Student Id: 300904663       *
+//*******************************
+
 public partial class Search : System.Web.UI.Page
 {
     protected void Page_PreInit(object sender, EventArgs e)
@@ -20,3 +25,8 @@ public partial class Search : System.Web.UI.Page
 
     }
 }
+
+//*******************************
+//* Name: Eduardo Go Matsushita *
+//* Student Id: 300904663       *
+//*******************************

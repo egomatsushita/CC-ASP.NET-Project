@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+//*******************************
+//* Name: Eduardo Go Matsushita *
+//* Student Id: 300904663       *
+//*******************************
+
 public partial class AddBooks : System.Web.UI.Page
 {
     protected void Page_PreInit(object sender, EventArgs e)
@@ -70,6 +75,11 @@ public partial class AddBooks : System.Web.UI.Page
             ReturnDDLtoDefaultView();
         }
     }
+
+//*******************************
+//* Name: Eduardo Go Matsushita *
+//* Student Id: 300904663       *
+//*******************************
 
     protected void SwitchFriendNameVisibility(object sender, EventArgs e)
     {
@@ -140,3 +150,8 @@ public partial class AddBooks : System.Web.UI.Page
         ControlFriendNameVisibility();
     }
 }
+
+//*******************************
+//* Name: Eduardo Go Matsushita *
+//* Student Id: 300904663       *
+//*******************************

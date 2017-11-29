@@ -1,4 +1,9 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LibraryCollection.master.cs" Inherits="LibraryCollection" %>
+﻿<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LibraryCollection.master.cs" Inherits="LibraryCollection" %>
 
 <!DOCTYPE html>
 <html>
@@ -35,7 +40,12 @@
                 </button>
                 <a href="./Default.aspx" class="navbar-brand" >Library Collection</a>           
             </div >
-            
+   
+<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>            
+
             <!-- NAVIGATION -->
             <div class="navbar-right">
                 <asp:SiteMapDataSource ID="SiteMapDataSourceHeadeNav" runat="server" ShowStartingNode="False" />
@@ -69,3 +79,8 @@
     </form>
 </body>
 </html>
+
+<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>

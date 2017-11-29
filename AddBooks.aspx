@@ -1,4 +1,9 @@
-﻿<%@ Page Title="Add a Book" Language="C#" MasterPageFile="~/LibraryCollection.master" AutoEventWireup="true" CodeFile="AddBooks.aspx.cs" Inherits="AddBooks" %>
+﻿<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>
+
+<%@ Page Title="Add a Book" Language="C#" MasterPageFile="~/LibraryCollection.master" AutoEventWireup="true" CodeFile="AddBooks.aspx.cs" Inherits="AddBooks" %>
 <%@ Register TagPrefix="wuc" TagName="NameAuthorISBN" Src="~/WucNameAuthorISBN.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
@@ -33,7 +38,14 @@
                     <asp:ListItem Value="no" Selected="True">No</asp:ListItem>
                 </asp:dropdownlist>
             </p>
-        
+
+
+<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>     
+
+
             <!-- Friend's Name -->
             <p>
                 <asp:Label ID="lblFriendName" runat="server" Text="Friend's Name:" Visible="False"></asp:Label><br />
@@ -72,3 +84,7 @@
    
 </asp:Content>
 
+<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>

@@ -1,11 +1,16 @@
-﻿<%@ Application Language="C#" %>
+﻿<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>
+
+<%@ Application Language="C#" %>
 
 <script runat="server">
 
     void Application_Start(object sender, EventArgs e)
     {
         // Code that runs on application startup
-        
+
     }
 
     void Application_End(object sender, EventArgs e)
@@ -19,6 +24,13 @@
         // Code that runs when an unhandled error occurs
 
     }
+
+
+    //*******************************
+    //* Name: Eduardo Go Matsushita *
+    //* Student Id: 300904663       *
+    //*******************************
+
 
     void Session_Start(object sender, EventArgs e)
     {
@@ -45,3 +57,8 @@
     }
 
 </script>
+
+<%--*******************************
+    * Name: Eduardo Go Matsushita *
+    * Student Id: 300904663       *
+    *******************************--%>
