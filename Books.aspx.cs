@@ -30,30 +30,30 @@ public partial class Books : System.Web.UI.Page
     {
         BookRepository bookList = Session["bookList"] as BookRepository;
 
-        if (bookList == null)
-        {
-            list.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
-        }
-        else
-        {
-            StringBuilder table = new StringBuilder();
-            table.Append("<h3 class=\"h3-title\">Look at the most amazing collection...</h3>");
-            table.Append("<table class=\"table table-responsive table-striped thead-dark\"><thead class=\"thead-dark\"><tr class=\"bg-primary\"><th>Name</th><th>Author</th><th>ISBN</th></tr></thead>");
+        //if (bookList == null)
+        //{
+        //    list.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
+        //}
+        //else
+        //{
+        //    StringBuilder table = new StringBuilder();
+        //    table.Append("<h3 class=\"h3-title\">Look at the most amazing collection...</h3>");
+        //    table.Append("<table class=\"table table-responsive table-striped thead-dark\"><thead class=\"thead-dark\"><tr class=\"bg-primary\"><th>Name</th><th>Author</th><th>ISBN</th></tr></thead>");
 
-            foreach (Book aBook in bookList.GetAllBooks())
-            {
-                table.Append("<tr><td>");
-                table.Append(aBook.Name);
-                table.Append("</td><td>");
-                table.Append(aBook.Author);
-                table.Append("</td><td>");
-                table.Append(aBook.ISBN);
-                table.Append("</td></tr>");
-            }
-            table.Append("</table>");
+        //    foreach (Book aBook in bookList.GetAllBooks())
+        //    {
+        //        table.Append("<tr><td>");
+        //        table.Append(aBook.Name);
+        //        table.Append("</td><td>");
+        //        table.Append(aBook.Author);
+        //        table.Append("</td><td>");
+        //        table.Append(aBook.ISBN);
+        //        table.Append("</td></tr>");
+        //    }
+        //    table.Append("</table>");
 
-            list.Text = table.ToString();
-        }
+        //    list.Text = table.ToString();
+        //}
     }
 }
 
