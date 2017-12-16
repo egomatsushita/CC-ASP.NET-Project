@@ -28,7 +28,7 @@ public partial class Books : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        BookRepository bookList = Session["bookList"] as BookRepository;
+        //BookRepository bookList = Session["bookList"] as BookRepository;
 
         //if (bookList == null)
         //{
