@@ -29,6 +29,14 @@ public partial class Books : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //BookRepository bookList = Session["bookList"] as BookRepository;
+        if (grid.Rows.Count < 1)
+        {
+            list.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
+        }
+        else
+        {
+            list.Text = "<h3 class=\"h3-title\">Look at the most amazing collection...</h3>";
+        }
 
         //if (bookList == null)
         //{
