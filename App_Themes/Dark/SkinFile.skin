@@ -28,4 +28,6 @@ Default skin template. The following skins are provided as examples only.
 <asp:DetailsView runat="server" AutoGenerateRows="False" 
                  CssClass="table table-responsive table-striped" 
                  GridLines="None"
-></asp:DetailsView>
+>
+    <FieldHeaderStyle CssClass="col-sm-3 header-field"></FieldHeaderStyle>
+</asp:DetailsView>

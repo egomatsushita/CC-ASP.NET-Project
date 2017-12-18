@@ -27,7 +27,20 @@ public partial class BookDetails : System.Web.UI.Page
         string title = uri.Substring(index + 1);
         title = title.Replace("%20", " ");
 
-        list.Text = "<h3 class=\"h3-title\"><em>"+ title + "</em></h3>";       
+        if (index > 0)
+        {
+            lit.Text = "<h3 class=\"h3-title\"><em>" + title + "</em></h3>";
+        }
+        else
+        {
+            Response.Redirect("~/Books.aspx");
+        }
+              
+    }
+
+    protected void bookDetails_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
+    {
+        Response.Redirect("~/Books.aspx");
     }
 }
 

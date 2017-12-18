@@ -21,20 +21,19 @@
                     <ItemTemplate>
                         <asp:LinkButton ID="bookDetails" runat="server" 
                                         CommandName="details" 
-                                        CommandArgument='<%# Bind("title") %>' Text='<%# Bind("title") %>'></asp:LinkButton>
+                                        CommandArgument='<%# Bind("title") %>' Text='<%# Bind("title") %>'
+                        ></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <%--<asp:BoundField DataField="title" HeaderText="Title" />--%>
                 <asp:BoundField DataField="author" HeaderText="Author" />
                 <asp:BoundField DataField="isbn" HeaderText="ISBN" />              
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="booksDataSource" runat="server"
             ConnectionString="<%$ ConnectionStrings:LibraryCollection %>"
-            SelectCommand="SELECT * FROM [booksCol] ORDER BY [genre], [nameFriend]">
-        </asp:SqlDataSource>
+            SelectCommand="SELECT * FROM [booksCol] ORDER BY [genre], [nameFriend]"
+        ></asp:SqlDataSource>
     </div>
-
 </asp:Content>
 
 <%--*******************************
