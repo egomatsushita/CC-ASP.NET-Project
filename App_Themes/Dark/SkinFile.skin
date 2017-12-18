@@ -18,6 +18,14 @@ Default skin template. The following skins are provided as examples only.
 <asp:requiredfieldvalidator runat="server" Display="Dynamic" ForeColor="Red"></asp:requiredfieldvalidator>
 <asp:comparevalidator runat="server" Display="Dynamic" ForeColor="Red"></asp:comparevalidator>
 
-<asp:GridView runat="server" AutoGenerateColumns="False" CssClass="table table-responsive table-striped" GridLines="None" >
+<asp:GridView runat="server" AutoGenerateColumns="False" 
+              CssClass="table table-responsive table-striped" 
+              GridLines="None" 
+>
     <HeaderStyle ForeColor="#282828" BackColor="#656565" />
 </asp:GridView>
+
+<asp:DetailsView runat="server" AutoGenerateRows="False" 
+                 CssClass="table table-responsive table-striped" 
+                 GridLines="None"
+></asp:DetailsView>

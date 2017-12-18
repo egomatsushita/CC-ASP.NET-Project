@@ -12,15 +12,29 @@
         <asp:literal ID="list" runat="server"></asp:literal>
     </div>
     <div class="col-sm-offset-2 col-sm-8">
-        <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" DataSourceID="booksDataSource" >
+        <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" AllowSorting="True" 
+                      DataKeyNames="idLibCol" DataSourceID="booksDataSource" 
+                      AllowPaging="True" PageSize="10" OnRowCommand="grid_RowCommand"
+        >
             <Columns>
-                <asp:BoundField DataField="title" HeaderText="TITLE" SortExpression="title" />
-                <asp:BoundField DataField="author" HeaderText="AUTHOR" SortExpression="author" />
-                <asp:BoundField DataField="isbn" HeaderText="ISBN" SortExpression="isbn" />          
-            </Columns>            
+                <asp:TemplateField HeaderText="Title">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="bookDetails" runat="server" 
+                                        CommandName="details" 
+                                        CommandArgument='<%# Bind("title") %>' Text='<%# Bind("title") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <%--<asp:BoundField DataField="title" HeaderText="Title" />--%>
+                <asp:BoundField DataField="author" HeaderText="Author" />
+                <asp:BoundField DataField="isbn" HeaderText="ISBN" />              
+            </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="booksDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT [author], [isbn], [title] FROM [booksCol]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="booksDataSource" runat="server"
+            ConnectionString="<%$ ConnectionStrings:LibraryCollection %>"
+            SelectCommand="SELECT * FROM [booksCol] ORDER BY [genre], [nameFriend]">
+        </asp:SqlDataSource>
     </div>
+
 </asp:Content>
 
 <%--*******************************

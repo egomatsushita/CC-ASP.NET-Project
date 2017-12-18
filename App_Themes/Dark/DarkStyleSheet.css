@@ -8424,3 +8424,7 @@ a.list-group-item-danger.active {
     float: right;
     margin-left: 10px;
 }
+
+.header-field {
+    font-weight: bold;
+}

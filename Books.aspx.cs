@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -38,6 +40,11 @@ public partial class Books : System.Web.UI.Page
             list.Text = "<h3 class=\"h3-title\">Look at the most amazing collection...</h3>";
         }
 
+        //if (!IsPostBack)
+        //{
+        //    //BindGrid();
+        //}
+
         //if (bookList == null)
         //{
         //    list.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
@@ -62,6 +69,40 @@ public partial class Books : System.Web.UI.Page
 
         //    list.Text = table.ToString();
         //}
+    }
+
+    //private void BindGrid()
+    //{
+    //    SqlConnection conn;
+    //    SqlCommand comm;
+    //    SqlDataReader reader;
+    //    string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
+    //    conn = new SqlConnection(connectionString);
+    //    comm = new SqlCommand("SELECT idLibCol, title, author, isbn " +
+    //                          "FROM booksCol", conn);
+    //    try
+    //    {
+    //        conn.Open();
+    //        reader = comm.ExecuteReader();
+    //        grid.DataSource = reader;
+    //        grid.DataBind();
+    //        reader.Close();
+    //    }
+    //    finally
+    //    {
+    //        conn.Close();
+    //    }
+
+    //}
+
+    protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int number;
+        if (!Int32.TryParse((String)e.CommandArgument, out number))
+        {
+            Response.Redirect("~/bookDetails.aspx?det=" + e.CommandArgument);
+        }
+
     }
 }
 
