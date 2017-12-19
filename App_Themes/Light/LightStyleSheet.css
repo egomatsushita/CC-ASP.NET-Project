@@ -7471,3 +7471,7 @@ button.close {
 .header-field {
     font-weight: bold;
 }
+
+.btn-back {
+    float: right;
+}
