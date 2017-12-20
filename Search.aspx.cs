@@ -27,20 +27,39 @@ public partial class Search : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            BindGrid("'All'");
+            BindGrid("'All'", "'All'");
         }
     }
 
-    private void BindGrid(string genre)
+    private void BindGrid(string genre, string friend)
     {
         SqlConnection conn;
         SqlCommand comm;
         string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
         conn = new SqlConnection(connectionString);
-        string command = "select title, genre, nameFriend from booksCol where genre = " + genre;
+        string command;
         if (genre == "'All'")
         {
-            command = "select title, genre, nameFriend from booksCol";
+            if (friend == "'All'")
+            {
+                command = "select title, genre, nameFriend from booksCol";
+            }
+            else
+            {
+                command = "select title, genre, nameFriend from booksCol where nameFriend = " + friend;
+            }
+            
+        }
+        else
+        {
+            if (friend == "'All'")
+            {
+                command = "select title, genre, nameFriend from booksCol where genre = " + genre;
+            }
+            else
+            {
+                command = "select title, genre, nameFriend from booksCol where genre = " + genre + "and nameFriend = " + friend;
+            }
         }
 
         comm = new SqlCommand(command, conn);
@@ -64,15 +83,25 @@ public partial class Search : System.Web.UI.Page
 
     }
 
-    protected void genreDropdownList_SelectedIndexChanged(object sender, EventArgs e)
+    protected void GenreDropdownList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        
-        string genre = string.Format("'{0}'", genreDropdownList.SelectedItem.Text);
-        lbl.Text = genre;
-        BindGrid(genre);
+
+        HandleDropdownList();
     }
 
 
+
+    protected void FriendDropdownList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        HandleDropdownList();
+    }
+
+    private void HandleDropdownList()
+    {
+        string genre = string.Format("'{0}'", genreDropdownList.SelectedItem.Text);
+        string friend = string.Format("'{0}'", friendDropdownList.SelectedItem.Text);
+        BindGrid(genre, friend);
+    }
 }
 
 
