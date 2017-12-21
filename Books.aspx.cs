@@ -30,7 +30,6 @@ public partial class Books : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //BookRepository bookList = Session["bookList"] as BookRepository;
         if (grid.Rows.Count < 1)
         {
             list.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
@@ -45,9 +44,15 @@ public partial class Books : System.Web.UI.Page
     {
         Session["idLibCol"] = e.CommandArgument;
 
-        Response.Redirect("~/bookDetails.aspx");
-    }
+        // Cannot redirect if a user change gridview page
+        if (e.CommandName != "Page")
+        {
+            Response.Redirect("~/bookDetails.aspx");
+        }
+        
 
+        
+    }
 }
 
 //*******************************

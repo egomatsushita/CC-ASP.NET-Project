@@ -11,7 +11,7 @@
     <div class="col-sm-offset-2 col-sm-8">
         <asp:literal ID="list" runat="server"></asp:literal>
     </div>
-    <div class="col-sm-offset-2 col-sm-8">    
+    <div class="col-sm-offset-2 col-sm-8">
         <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" 
                       DataKeyNames="idLibCol" DataSourceID="booksDataSource" 
                       AllowPaging="True" PageSize="10" OnRowCommand="grid_RowCommand"
@@ -20,8 +20,8 @@
                 <asp:TemplateField HeaderText="Title">
                     <ItemTemplate>
                         <asp:LinkButton ID="bookDetails" runat="server" 
-                                        CommandName="details" 
-                                        CommandArgument='<%# Eval("idLibCol") %>' Text='<%# Bind("title") %>'
+                                        CommandName='<%# Bind("title") %>' 
+                                        CommandArgument='<%# Bind("idLibCol") %>' Text='<%# Bind("title") %>'
                         ></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
