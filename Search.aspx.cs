@@ -27,80 +27,50 @@ public partial class Search : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            BindGrid("'All'", "'All'");
+            BindGrid();
         }
     }
 
-    private void BindGrid(string genre, string friend)
+    private void BindGrid()
     {
-        SqlConnection conn;
-        SqlCommand comm;
-        string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
-        conn = new SqlConnection(connectionString);
-        string command;
-        if (genre == "'All'")
+        string friend = friendDropdownList.SelectedValue;
+        string genre = genreDropdownList.SelectedValue;
+
+        if (friend == "All")
         {
-            if (friend == "'All'")
+            if (genre == "All")
             {
-                command = "select title, genre, nameFriend from booksCol";
+                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol]";
             }
             else
             {
-                command = "select title, genre, nameFriend from booksCol where nameFriend = " + friend;
+                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol] WHERE (([genre] = @genre))";
             }
+
             
         }
         else
         {
-            if (friend == "'All'")
+            if (genre == "All")
             {
-                command = "select title, genre, nameFriend from booksCol where genre = " + genre;
+                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol] WHERE (([nameFriend] = @nameFriend))";
             }
             else
             {
-                command = "select title, genre, nameFriend from booksCol where genre = " + genre + "and nameFriend = " + friend;
-            }
+                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol] WHERE (([genre] = @genre) AND ([nameFriend] = @nameFriend))";
+            }           
         }
-
-        comm = new SqlCommand(command, conn);
-
-        try
-        {
-            conn.Open();
-
-            
-
-            SqlDataReader reader = comm.ExecuteReader();
-            searchGrid.AutoGenerateColumns = true;
-            searchGrid.DataSource = reader;
-            searchGrid.DataBind();
-            reader.Close();
-        }
-        finally
-        {
-            conn.Close();
-        }
-
     }
 
     protected void GenreDropdownList_SelectedIndexChanged(object sender, EventArgs e)
     {
 
-        HandleDropdownList();
+        BindGrid();
     }
-
-
 
     protected void FriendDropdownList_SelectedIndexChanged(object sender, EventArgs e)
     {
-        HandleDropdownList();
-    }
-
-    private void HandleDropdownList()
-    {
-        string genre = string.Format("'{0}'", genreDropdownList.SelectedItem.Text);
-        string friend = string.Format("'{0}'", friendDropdownList.SelectedItem.Text);
-        BindGrid(genre, friend);
+        BindGrid();
     }
 }
 
