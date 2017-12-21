@@ -15,15 +15,14 @@
                          OnItemDeleted="bookDetails_ItemDeleted" 
         >            
             <Fields>
-                <asp:BoundField DataField="idLibCol" HeaderText="idLibCol" SortExpression="idLibCol" ReadOnly="True" />
-                <asp:BoundField DataField="title" HeaderText="title" SortExpression="title" />
-                <asp:BoundField DataField="author" HeaderText="author" SortExpression="author" />
-                <asp:BoundField DataField="isbn" HeaderText="isbn" SortExpression="isbn" />
-                <asp:BoundField DataField="genre" HeaderText="genre" SortExpression="genre" />
-                <asp:BoundField DataField="pages" HeaderText="pages" SortExpression="pages" />
-                <asp:BoundField DataField="landedFriend" HeaderText="landedFriend" SortExpression="landedFriend" />
-                <asp:BoundField DataField="nameFriend" HeaderText="nameFriend" SortExpression="nameFriend" />
-                <asp:BoundField DataField="comments" HeaderText="comments" SortExpression="comments" />
+                <asp:BoundField DataField="idLibCol" HeaderText="Id" SortExpression="idLibCol" ReadOnly="True" />
+                <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />
+                <asp:BoundField DataField="author" HeaderText="Author" SortExpression="author" />
+                <asp:BoundField DataField="isbn" HeaderText="ISBN" SortExpression="isbn" />
+                <asp:BoundField DataField="genre" HeaderText="Genre" SortExpression="genre" />
+                <asp:BoundField DataField="pages" HeaderText="Pages" SortExpression="pages" />
+                <asp:BoundField DataField="nameFriend" HeaderText="Friend" SortExpression="nameFriend" />
+                <asp:BoundField DataField="comments" HeaderText="Comments" SortExpression="comments" />
             </Fields>
         </asp:detailsview>
         <asp:linkbutton runat="server" CssClass="btn-back" postbackurl="~/Books.aspx">Back</asp:linkbutton>
@@ -34,10 +33,38 @@
     *******************************--%>
 
         <asp:sqldatasource id="bookDataSource" runat="server" connectionstring="<%$ ConnectionStrings:LibraryCollection %>"
-                           selectcommand="SELECT * FROM [booksCol] WHERE ([idLibCol] = @idLibCol)">
+                           selectcommand="SELECT * FROM [booksCol] WHERE ([idLibCol] = @idLibCol)" 
+                           DeleteCommand="DELETE FROM [booksCol] WHERE [idLibCol] = @idLibCol" 
+                           InsertCommand="INSERT INTO [booksCol] ([idLibCol], [title], [author], [isbn], [genre], [pages], [landedFriend], [nameFriend], [comments]) VALUES (@idLibCol, @title, @author, @isbn, @genre, @pages, @landedFriend, @nameFriend, @comments)" 
+                           UpdateCommand="UPDATE [booksCol] SET [title] = @title, [author] = @author, [isbn] = @isbn, [genre] = @genre, [pages] = @pages, [landedFriend] = @landedFriend, [nameFriend] = @nameFriend, [comments] = @comments WHERE [idLibCol] = @idLibCol">
+            <DeleteParameters>
+                <asp:Parameter Name="idLibCol" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="idLibCol" Type="Int32" />
+                <asp:Parameter Name="title" Type="String" />
+                <asp:Parameter Name="author" Type="String" />
+                <asp:Parameter Name="isbn" Type="String" />
+                <asp:Parameter Name="genre" Type="String" />
+                <asp:Parameter Name="pages" Type="Int32" />
+                <asp:Parameter Name="landedFriend" Type="String" />
+                <asp:Parameter Name="nameFriend" Type="String" />
+                <asp:Parameter Name="comments" Type="String" />
+            </InsertParameters>
             <SelectParameters>
                 <asp:SessionParameter Name="idLibCol" SessionField="idLibCol" Type="Int32" />
             </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="title" Type="String" />
+                <asp:Parameter Name="author" Type="String" />
+                <asp:Parameter Name="isbn" Type="String" />
+                <asp:Parameter Name="genre" Type="String" />
+                <asp:Parameter Name="pages" Type="Int32" />
+                <asp:Parameter Name="landedFriend" Type="String" />
+                <asp:Parameter Name="nameFriend" Type="String" />
+                <asp:Parameter Name="comments" Type="String" />
+                <asp:Parameter Name="idLibCol" Type="Int32" />
+            </UpdateParameters>
         </asp:sqldatasource>
     </div>
 </asp:Content>
