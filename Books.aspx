@@ -11,8 +11,8 @@
     <div class="col-sm-offset-2 col-sm-8">
         <asp:literal ID="list" runat="server"></asp:literal>
     </div>
-    <div class="col-sm-offset-2 col-sm-8">
-        <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" AllowSorting="True" 
+    <div class="col-sm-offset-2 col-sm-8">    
+        <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" 
                       DataKeyNames="idLibCol" DataSourceID="booksDataSource" 
                       AllowPaging="True" PageSize="10" OnRowCommand="grid_RowCommand"
         >
@@ -21,7 +21,7 @@
                     <ItemTemplate>
                         <asp:LinkButton ID="bookDetails" runat="server" 
                                         CommandName="details" 
-                                        CommandArgument='<%# Bind("title") %>' Text='<%# Bind("title") %>'
+                                        CommandArgument='<%# Eval("idLibCol") %>' Text='<%# Bind("title") %>'
                         ></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -31,7 +31,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="booksDataSource" runat="server"
             ConnectionString="<%$ ConnectionStrings:LibraryCollection %>"
-            SelectCommand="SELECT * FROM [booksCol] ORDER BY [genre], [nameFriend]"
+            SelectCommand="SELECT * FROM [booksCol]"
         ></asp:SqlDataSource>
     </div>
 </asp:Content>

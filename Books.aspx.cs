@@ -43,13 +43,11 @@ public partial class Books : System.Web.UI.Page
 
     protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        int number;
-        // Cannot redirect if a user change gridview page
-        if (!Int32.TryParse((String)e.CommandArgument, out number))
-        {
-            Response.Redirect("~/bookDetails.aspx?det=" + e.CommandArgument);
-        }
+        Session["idLibCol"] = e.CommandArgument;
+
+        Response.Redirect("~/bookDetails.aspx");
     }
+
 }
 
 //*******************************
