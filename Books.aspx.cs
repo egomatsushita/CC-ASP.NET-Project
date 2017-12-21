@@ -43,6 +43,7 @@ public partial class Books : System.Web.UI.Page
     protected void grid_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         Session["idLibCol"] = e.CommandArgument;
+        Session["title"] = e.CommandName;
 
         // Cannot redirect if a user change gridview page
         if (e.CommandName != "Page")

@@ -22,12 +22,9 @@ public partial class BookDetails : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string uri = HttpContext.Current.Request.Url.PathAndQuery;
-        int index = uri.IndexOf('=');
-        string title = uri.Substring(index + 1);
-        title = title.Replace("%20", " ");
+        string title = Session["title"] as String;
 
-        if (index > 0)
+        if (title != null)
         {
             lit.Text = "<h3 class=\"h3-title\"><em>" + title + "</em></h3>";
         }
@@ -35,7 +32,7 @@ public partial class BookDetails : System.Web.UI.Page
         {
             Response.Redirect("~/Books.aspx");
         }
-              
+
     }
 
     protected void bookDetails_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
