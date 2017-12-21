@@ -9,17 +9,23 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">
     <div class="col-sm-offset-2 col-sm-8">
-        <p>Genre</p>
-        <asp:dropdownlist ID="genreDropdownList" runat="server" DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="GenreDropdownList_SelectedIndexChanged" >
-            <asp:ListItem>All</asp:ListItem>
-        </asp:dropdownlist>
-        <asp:sqldatasource ID="genreDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT DISTINCT [genre] FROM [booksCol]"></asp:sqldatasource>
-
-        <p>Name of A Friend</p>
-        <asp:dropdownlist ID="friendDropdownList" runat="server" DataSourceID="friendDataSource" DataTextField="nameFriend" DataValueField="nameFriend" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="FriendDropdownList_SelectedIndexChanged" >
-            <asp:ListItem>All</asp:ListItem>
-        </asp:dropdownlist>
-        <asp:sqldatasource ID="friendDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT DISTINCT [nameFriend] FROM [booksCol]"></asp:sqldatasource>
+        <div class="dropdown">
+            <div class="col-sm-6 h3-title">
+                <span style="font-weight:bold;">Genre</span>&nbsp;
+                <asp:dropdownlist CssClass="btn btn-sm btn-default dropdown-toggle dropdown-toggle-split" ID="genreDropdownList" runat="server" DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="GenreDropdownList_SelectedIndexChanged" >
+                    <asp:ListItem>All</asp:ListItem>
+                </asp:dropdownlist>
+                <asp:sqldatasource ID="genreDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT DISTINCT [genre] FROM [booksCol]"></asp:sqldatasource>
+            </div>
+            <div class="col-sm-6 h3-title">
+                <span style="font-weight:bold;">Friend</span>&nbsp;
+                <asp:dropdownlist CssClass="btn btn-sm btn-default dropdown-toggle dropdown-toggle-split" ID="friendDropdownList" runat="server" DataSourceID="friendDataSource" DataTextField="nameFriend" DataValueField="nameFriend" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="FriendDropdownList_SelectedIndexChanged" >
+                    <asp:ListItem>All</asp:ListItem>
+                </asp:dropdownlist>
+                <asp:sqldatasource ID="friendDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT DISTINCT [nameFriend] FROM [booksCol]"></asp:sqldatasource>
+            </div>
+        </div>
+        
 
         <asp:gridview ID="searchGrid" runat="server"  AutoGenerateColumns="False" DataSourceID="booksColDataSource">
             <Columns>
