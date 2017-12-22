@@ -32,7 +32,6 @@ public partial class BookDetails : System.Web.UI.Page
         {
             Response.Redirect("~/Books.aspx");
         }
-
     }
 
     protected void bookDetails_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)

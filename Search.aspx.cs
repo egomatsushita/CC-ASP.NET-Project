@@ -27,12 +27,9 @@ public partial class Search : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            // message when searching does not retrieve any book
-            lblMsg.Text = "<h3 class=\"h3-title\">No book in the collection.</h3>";
+            lit.Text = "<h3 class=\"h3-title\">No book in the collection.</h3>";
             BindGrid();           
-        }
-
-        
+        }      
     }
 
     private void BindGrid()
@@ -83,16 +80,16 @@ public partial class Search : System.Web.UI.Page
         BindGrid();
     }
 
-    // control label visibility in accordance with data retrieved
+    // control literal visibility in accordance with data retrieved
     protected void grid_DataBound(object sender, EventArgs e)
     {
         if (grid.Rows.Count < 1)
         {
-            lblMsg.Visible = true;
+            lit.Visible = true;
         }
         else
         {
-            lblMsg.Visible = false;
+            lit.Visible = false;
         }
     }
 }

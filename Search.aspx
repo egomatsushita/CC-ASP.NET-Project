@@ -61,7 +61,7 @@
         </asp:SqlDataSource>
 
         <%--message--%>
-        <asp:Label ID="lblMsg" runat="server" Visible="False"></asp:Label>
+        <asp:literal ID="lit" runat="server" Visible="False"></asp:literal>
     </div>
 </asp:Content>
 
