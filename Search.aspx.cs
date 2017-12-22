@@ -27,6 +27,7 @@ public partial class Search : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            // message when searching does not retrieve any book
             lblMsg.Text = "<h3 class=\"h3-title\">No book in the collection.</h3>";
             BindGrid();           
         }
@@ -40,13 +41,6 @@ public partial class Search : System.Web.UI.Page
         string genre = genreDropdownList.SelectedValue;
 
         AssignCommandAfterSearchingBy(genre, friend);
-
-        //if (grid.Rows.Count < 1)
-        //{
-        //    lblMsg.Text = "No book in the search";
-        //}
-
-        //lblMsg.Text = booksColDataSource.DataSourceMode.ToString();
     }
 
     public void AssignCommandAfterSearchingBy(string genre, string friend)
@@ -89,6 +83,7 @@ public partial class Search : System.Web.UI.Page
         BindGrid();
     }
 
+    // control label visibility in accordance with data retrieved
     protected void grid_DataBound(object sender, EventArgs e)
     {
         if (grid.Rows.Count < 1)

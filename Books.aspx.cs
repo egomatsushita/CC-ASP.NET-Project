@@ -32,11 +32,11 @@ public partial class Books : System.Web.UI.Page
     {
         if (grid.Rows.Count < 1)
         {
-            list.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
+            lblMsg.Text = "<h3 class=\"h3-title\">There is no book in the collection!</h3>";
         }
         else
         {
-            list.Text = "<h3 class=\"h3-title\">Look at the most amazing collection...</h3>";
+            lblMsg.Text = "<h3 class=\"h3-title\">Look at the most amazing collection...</h3>";
         }       
     }
 
@@ -45,14 +45,11 @@ public partial class Books : System.Web.UI.Page
         Session["idLibCol"] = e.CommandArgument;
         Session["title"] = e.CommandName;
 
-        // Cannot redirect if a user change gridview page
+        // Avoid redirection if a user change gridview page
         if (e.CommandName != "Page")
         {
             Response.Redirect("~/bookDetails.aspx");
-        }
-        
-
-        
+        }       
     }
 }
 

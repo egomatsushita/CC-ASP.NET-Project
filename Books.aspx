@@ -8,14 +8,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">   
+    <%--message--%>
+    <asp:Label ID="lblMsg" runat="server" Text="Label" CssClass="col-sm-offset-2 col-sm-8"></asp:Label>
+   
     <div class="col-sm-offset-2 col-sm-8">
-        <asp:literal ID="list" runat="server"></asp:literal>
-    </div>
-    <div class="col-sm-offset-2 col-sm-8">
+        <%--grid view--%>
         <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" 
                       DataKeyNames="idLibCol" DataSourceID="booksDataSource" 
-                      AllowPaging="True" PageSize="10" OnRowCommand="grid_RowCommand"
-        >
+                      AllowPaging="True" PageSize="10" OnRowCommand="grid_RowCommand">
             <Columns>
                 <asp:TemplateField HeaderText="Title">
                     <ItemTemplate>
@@ -29,6 +29,8 @@
                 <asp:BoundField DataField="isbn" HeaderText="ISBN" />              
             </Columns>
         </asp:GridView>
+
+        <%--sql datasource--%>
         <asp:SqlDataSource ID="booksDataSource" runat="server"
             ConnectionString="<%$ ConnectionStrings:LibraryCollection %>"
             SelectCommand="SELECT * FROM [booksCol]"
