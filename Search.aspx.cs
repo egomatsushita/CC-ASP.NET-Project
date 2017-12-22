@@ -27,8 +27,11 @@ public partial class Search : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            BindGrid();
+            lblMsg.Text = "<h3 class=\"h3-title\">No book in the collection.</h3>";
+            BindGrid();           
         }
+
+        
     }
 
     private void BindGrid()
@@ -36,41 +39,66 @@ public partial class Search : System.Web.UI.Page
         string friend = friendDropdownList.SelectedValue;
         string genre = genreDropdownList.SelectedValue;
 
+        AssignCommandAfterSearchingBy(genre, friend);
+
+        //if (grid.Rows.Count < 1)
+        //{
+        //    lblMsg.Text = "No book in the search";
+        //}
+
+        //lblMsg.Text = booksColDataSource.DataSourceMode.ToString();
+    }
+
+    public void AssignCommandAfterSearchingBy(string genre, string friend)
+    {
+        string command;
+
         if (friend == "All")
         {
             if (genre == "All")
             {
-                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol]";
+                command = "SELECT * FROM [booksCol]";
             }
             else
             {
-                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol] WHERE (([genre] = @genre))";
+                command = "SELECT * FROM [booksCol] WHERE (([genre] = @genre))";
             }
-
-            
         }
         else
         {
             if (genre == "All")
             {
-                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol] WHERE (([nameFriend] = @nameFriend))";
+                command = "SELECT * FROM [booksCol] WHERE (([nameFriend] = @nameFriend))";
             }
             else
             {
-                booksColDataSource.SelectCommand = "SELECT * FROM [booksCol] WHERE (([genre] = @genre) AND ([nameFriend] = @nameFriend))";
-            }           
+                command = "SELECT * FROM [booksCol] WHERE (([genre] = @genre) AND ([nameFriend] = @nameFriend))";
+            }
         }
+
+        booksColDataSource.SelectCommand = command;       
     }
 
     protected void GenreDropdownList_SelectedIndexChanged(object sender, EventArgs e)
     {
-
         BindGrid();
     }
 
     protected void FriendDropdownList_SelectedIndexChanged(object sender, EventArgs e)
     {
         BindGrid();
+    }
+
+    protected void grid_DataBound(object sender, EventArgs e)
+    {
+        if (grid.Rows.Count < 1)
+        {
+            lblMsg.Visible = true;
+        }
+        else
+        {
+            lblMsg.Visible = false;
+        }
     }
 }
 

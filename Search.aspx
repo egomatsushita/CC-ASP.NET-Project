@@ -27,7 +27,7 @@
         </div>
         
 
-        <asp:gridview ID="searchGrid" runat="server"  AutoGenerateColumns="False" DataSourceID="booksColDataSource">
+        <asp:gridview ID="grid" runat="server"  AutoGenerateColumns="False" DataSourceID="booksColDataSource" OnDataBound="grid_DataBound">
             <Columns>
                 <asp:BoundField DataField="title" HeaderText="Title" />
                 <asp:BoundField DataField="genre" HeaderText="Genre" />
@@ -41,6 +41,8 @@
                 <asp:ControlParameter ControlID="friendDropdownList" DefaultValue="All" Name="nameFriend" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
+
+        <asp:Label ID="lblMsg" runat="server" Visible="False"></asp:Label>
     </div>
 </asp:Content>
 
