@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +15,9 @@ using System.Web.UI.WebControls;
 
 public partial class AddBooks : System.Web.UI.Page
 {
+    // will be assigned to a unique primary key
+    private static int idLibCol = 0;
+
     protected void Page_PreInit(object sender, EventArgs e)
     {
         if (Request.Cookies["Theme"] != null)
@@ -22,7 +28,29 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        // retrieve the largest primary key
+        string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
+        SqlConnection conn = new SqlConnection(connectionString);
+        SqlCommand comm =  new SqlCommand("select idLibCol from BooksCol", conn);
+        try
+        {
+            conn.Open();
+            SqlDataReader reader;
+            reader = comm.ExecuteReader();
+            while (reader.Read())
+            {
+                idLibCol = idLibCol > reader.GetInt32(0) ? idLibCol : reader.GetInt32(0);
+            }          
+            reader.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+        finally
+        {          
+            conn.Close();
+        }
 
     }
 
@@ -35,6 +63,51 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
+        idLibCol++;
+
+        if (txtFriendName.Text == "")
+        {
+            txtFriendName.Text = "No Friend";
+        }
+        if (txtComments.Text == "")
+        {
+            txtComments.Text = "No Comments";
+        }
+        DataSet dataSet = new DataSet();
+        SqlDataAdapter adapter;
+        string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
+        SqlConnection conn = new SqlConnection(connectionString);
+        adapter = new SqlDataAdapter("select idLibCol, title, author, isbn, genre, pages, landedFriend, nameFriend, comments from BooksCol", conn);
+
+        if (ViewState["BooksDataSet"] == null)
+        {
+            adapter.Fill(dataSet, "BooksCol");
+            ViewState["BooksDataSet"] = dataSet;
+        }
+        else
+        {
+            dataSet = (DataSet)ViewState["BooksDataSet"];
+        }
+
+        DataRow dataRow;
+        SqlCommandBuilder commandBuilder;
+        dataRow = dataSet.Tables["BooksCol"].NewRow();
+        dataRow["idLibCol"] = idLibCol;
+        dataRow["title"] = wucNameAuthorISBN.Name;
+        dataRow["author"] = wucNameAuthorISBN.Author;
+        dataRow["isbn"] = wucNameAuthorISBN.ISBN;
+        dataRow["genre"] = txtGenre.Text;
+        dataRow["pages"] = txtNoPages.Text;
+        dataRow["landedFriend"] = ddlLandedFriend.SelectedValue;
+        dataRow["nameFriend"] = txtFriendName.Text;
+        dataRow["comments"] = txtComments.Text;
+        dataSet.Tables["BooksCol"].Rows.Add(dataRow);
+        commandBuilder = new SqlCommandBuilder(adapter);
+        DataTable bookTable = dataSet.Tables["BooksCol"];
+        adapter.Update(bookTable);
+        ViewState["BooksDataSet"] = null;
+
+        // keep data in the book repository ++++++++++++++++++++++++++++++++
         if (Page.IsValid)
         {
             // create a new book
@@ -60,19 +133,19 @@ public partial class AddBooks : System.Web.UI.Page
 
             // Pop up an bootstrap modal with a successful message
             ScriptManager.RegisterStartupScript(this,
-                                                this.GetType(),
-                                                "ServerControlScript",
-                                                "<script>" +
-                                                  "$(document).ready(function() {" +
-                                                    "$(\"#popup_success\").modal(\"show\");" +
-                                                  "}); " +
-                                                "</script>",
-                                                false);
+                                            this.GetType(),
+                                            "ServerControlScript",
+                                            "<script>" +
+                                              "$(document).ready(function() {" +
+                                                "$(\"#popup_success\").modal(\"show\");" +
+                                              "}); " +
+                                            "</script>",
+                                            false);
 
-            // Delete the content of all text fields after the newbook added
-            ClearTextField();
+        // Delete the content of all text fields after the newbook added
+        ClearTextField();
 
-            ReturnDDLtoDefaultView();
+        ReturnDDLtoDefaultView();
         }
     }
 
