@@ -38,6 +38,22 @@ public partial class BookDetails : System.Web.UI.Page
     {
         Response.Redirect("~/Books.aspx");
     }
+
+    protected void lkBtnAdd_Click(object sender, EventArgs e)
+    {
+        BoundField bdField = new BoundField
+        {
+            HeaderText = "Genre",
+            DataField = "genre"
+        };
+        bookDetails.Fields.RemoveAt(4);
+        bookDetails.Fields.Insert(4, bdField);
+    }
+
+
+    protected void bookDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
+    {
+    }
 }
 
 //*******************************

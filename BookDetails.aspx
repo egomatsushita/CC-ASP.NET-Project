@@ -14,13 +14,24 @@
         <%--details view--%>
         <asp:detailsview id="bookDetails" runat="server" autogeneraterows="False" 
                          datakeynames="idLibCol" datasourceid="bookDataSource" 
-                         OnItemDeleted="bookDetails_ItemDeleted">            
+                         OnItemDeleted="bookDetails_ItemDeleted" OnItemUpdating="bookDetails_ItemUpdating" >            
             <Fields>
                 <asp:BoundField DataField="idLibCol" HeaderText="Id" SortExpression="idLibCol" ReadOnly="True" />
                 <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />
                 <asp:BoundField DataField="author" HeaderText="Author" SortExpression="author" />
                 <asp:BoundField DataField="isbn" HeaderText="ISBN" SortExpression="isbn" />
-                <asp:BoundField DataField="genre" HeaderText="Genre" SortExpression="genre" />
+                <asp:TemplateField HeaderText="Genre template" SortExpression="genre">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="ddlGenre" runat="server" DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" SelectedValue=<%# Bind("genre") %> Enabled="False">
+                        </asp:DropDownList>                        
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddlGenre" runat="server" DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" SelectedValue=<%# Bind("genre") %> >
+                        </asp:DropDownList>
+                        &nbsp;
+                        <asp:LinkButton ID="lkBtnAdd" runat="server" OnClick="lkBtnAdd_Click" >New Genre</asp:LinkButton>                           
+                    </EditItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="pages" HeaderText="Pages" SortExpression="pages" />
                 <asp:BoundField DataField="nameFriend" HeaderText="Friend" SortExpression="nameFriend" />
                 <asp:BoundField DataField="comments" HeaderText="Comments" SortExpression="comments" />
@@ -29,6 +40,8 @@
         </asp:detailsview>
         <%--back button--%>
         <asp:linkbutton runat="server" CssClass="btn-back" postbackurl="~/Books.aspx">Back</asp:linkbutton>
+
+        
 
 <%--*******************************
     * Name: Eduardo Go Matsushita *
@@ -69,6 +82,8 @@
                 <asp:Parameter Name="idLibCol" Type="Int32" />
             </UpdateParameters>
         </asp:sqldatasource>
+
+        <asp:SqlDataSource ID="genreDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT distinct [genre] FROM [booksCol]"></asp:SqlDataSource>      
     </div>
 </asp:Content>
 
