@@ -22,11 +22,15 @@
                 <asp:BoundField DataField="isbn" HeaderText="ISBN" SortExpression="isbn" />
                 <asp:TemplateField HeaderText="Genre template" SortExpression="genre">
                     <ItemTemplate>
-                        <asp:DropDownList ID="ddlGenre" runat="server" DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" SelectedValue=<%# Bind("genre") %> Enabled="False">
+                        <asp:DropDownList ID="ddlGenre" runat="server" CssClass="btn btn-sm btn-default dropdown-toggle" 
+                                          DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" 
+                                          SelectedValue=<%# Bind("genre") %> Enabled="False">
                         </asp:DropDownList>                        
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:DropDownList ID="ddlGenre" runat="server" DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" SelectedValue=<%# Bind("genre") %> >
+                        <asp:DropDownList ID="ddlGenre" runat="server" CssClass="btn btn-sm btn-default dropdown-toggle" 
+                                          DataSourceID="genreDataSource" DataTextField="genre" DataValueField="genre" 
+                                          SelectedValue=<%# Bind("genre") %> >
                         </asp:DropDownList>
                         &nbsp;
                         <asp:LinkButton ID="lkBtnAdd" runat="server" OnClick="lkBtnAdd_Click" >New Genre</asp:LinkButton>                           
@@ -83,7 +87,8 @@
             </UpdateParameters>
         </asp:sqldatasource>
 
-        <asp:SqlDataSource ID="genreDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" SelectCommand="SELECT distinct [genre] FROM [booksCol]"></asp:SqlDataSource>      
+        <asp:SqlDataSource ID="genreDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryCollection %>" 
+                           SelectCommand="SELECT distinct [genre] FROM [booksCol]"></asp:SqlDataSource>      
     </div>
 </asp:Content>
 
