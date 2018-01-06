@@ -5,6 +5,6 @@
     <siteMapNode url="~/Books.aspx" title="Books"  description="User views the books" />
     <siteMapNode url="~/AddBooks.aspx" title="Add"  description="User adds a new book" />
     <siteMapNode url="~/Search.aspx" title="Search"  description="User searches for a book" />
-    <!--<siteMapNode url="~/Setup.aspx" title="Setup"  description="User setup the color scheme" />-->
+    <siteMapNode url="~/Save.aspx" title="Save"  description="User save the library collection on a txt file" />
   </siteMapNode>
 </siteMap>

@@ -28,8 +28,8 @@ public partial class Search : System.Web.UI.Page
         if (!IsPostBack)
         {
             lit.Text = "<h3 class=\"h3-title\">No book in the collection.</h3>";
-            BindGrid();           
-        }      
+            BindGrid();
+        }
     }
 
     private void BindGrid()
@@ -67,7 +67,7 @@ public partial class Search : System.Web.UI.Page
             }
         }
 
-        booksColDataSource.SelectCommand = command;       
+        booksColDataSource.SelectCommand = command;
     }
 
     protected void GenreDropdownList_SelectedIndexChanged(object sender, EventArgs e)
