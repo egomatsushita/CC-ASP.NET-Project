@@ -39,7 +39,7 @@ public partial class Setup : System.Web.UI.Page
         string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
         conn = new SqlConnection(connectionString);
         comm = new SqlCommand("select idLibCol, title, author, isbn, genre, pages, nameFriend, comments from booksCol", conn);
-        //string user = HttpContext.Current.User.Identity.Name;
+
         try
         {
             conn.Open();
@@ -48,8 +48,9 @@ public partial class Setup : System.Web.UI.Page
 
             using (StreamWriter streamWriter = File.CreateText(@"C:\Users\egoma\Downloads\myCollection.txt"))
             {
-                streamWriter.WriteLine(">>>>> Library Collection <<<<<");
-                streamWriter.WriteLine("");
+                streamWriter.WriteLine(">>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<");
+                streamWriter.WriteLine(">>>>>>>>>> Library Collection <<<<<<<<<<");
+                streamWriter.WriteLine("");             
 
                 while (reader.Read())
                 {
@@ -63,7 +64,6 @@ public partial class Setup : System.Web.UI.Page
                     streamWriter.WriteLine("Comments: " + reader.GetString(7));
                     streamWriter.WriteLine("");
                 }
-
                 streamWriter.WriteLine("PS: " + txtNotes.Text);
                 streamWriter.WriteLine("");
                 streamWriter.WriteLine(">>>>> Saved on: " + DateTime.Now.ToString() + " <<<<<");

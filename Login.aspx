@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderContent" Runat="Server">
     <div class="col-sm-offset-2 col-sm-8">
-        <h1>Login</h1>
+        <h3 class="h3-title">Login</h3>
         <asp:Login ID="Login1" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt">
             <LoginButtonStyle ForeColor="#6B696B" />
             <TextBoxStyle ForeColor="#3399F3" />
