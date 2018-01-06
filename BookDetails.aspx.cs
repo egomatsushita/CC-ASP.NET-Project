@@ -32,6 +32,12 @@ public partial class BookDetails : System.Web.UI.Page
         {
             Response.Redirect("~/Books.aspx");
         }
+
+        // only allow a user with admin role to edit/delete/update
+        if (!HttpContext.Current.User.IsInRole("Admin"))
+        {
+            bookDetails.Rows[8].Visible = false;
+        }
     }
 
     protected void bookDetails_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
@@ -48,11 +54,6 @@ public partial class BookDetails : System.Web.UI.Page
         };
         bookDetails.Fields.RemoveAt(4);
         bookDetails.Fields.Insert(4, bdField);
-    }
-
-
-    protected void bookDetails_ItemUpdating(object sender, DetailsViewUpdateEventArgs e)
-    {
     }
 }
 

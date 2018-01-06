@@ -57,8 +57,17 @@
             
             <!-- User Session -->
             <div class="navbar-nav navbar-collapse collapse _toggle">
-                <div class="navbar-text label">
-                    <asp:Label ID="lblUserSession" runat="server" ></asp:Label>  <!-- CssClass="session-label" Font-Size="12px" -->
+                <div class="navbar-text label">              
+                    <asp:LoginView ID="loginView" runat="server">
+                        <LoggedInTemplate>
+                            <asp:LoginName ID="loginName" runat="server" FormatString="Hello, {0}!"/>
+                            (<asp:LoginStatus ID="loginStatus" runat="server" />
+                            )
+                        </LoggedInTemplate>
+                        <AnonymousTemplate>
+                            <asp:LoginStatus ID="loginStatus" runat="server" />
+                        </AnonymousTemplate>
+                    </asp:LoginView>          
                 </div>                  
             </div>              
         </div> <!-- END .CONTAINER -->

@@ -28,6 +28,13 @@ public partial class AddBooks : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        // only allow admin role to save a book in database
+        if (!HttpContext.Current.User.IsInRole("Admin"))
+        {
+            btnSave.Enabled = false;
+        }
+
+
         // retrieve the largest primary key
         string connectionString = ConfigurationManager.ConnectionStrings["LibraryCollection"].ConnectionString;
         SqlConnection conn = new SqlConnection(connectionString);

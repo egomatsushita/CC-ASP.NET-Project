@@ -14,7 +14,7 @@
         <%--details view--%>
         <asp:detailsview id="bookDetails" runat="server" autogeneraterows="False" 
                          datakeynames="idLibCol" datasourceid="bookDataSource" 
-                         OnItemDeleted="bookDetails_ItemDeleted" OnItemUpdating="bookDetails_ItemUpdating" >            
+                         OnItemDeleted="bookDetails_ItemDeleted" >            
             <Fields>
                 <asp:BoundField DataField="idLibCol" HeaderText="Id" SortExpression="idLibCol" ReadOnly="True" />
                 <asp:BoundField DataField="title" HeaderText="Title" SortExpression="title" />
