@@ -16,22 +16,22 @@ An application built to manage a library collection. Anonymous users can only ac
 
 ## In Action
 Setup Page
-!["Setup Page"](*)
+!["Setup Page"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-SetupPage.PNG)
 
 Setup Page - Dark
-!["Setup Page - Dark"](*)
+!["Setup Page - Dark"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-SetupPage-Dark.PNG)
 
 Books Page
-!["Books Page"](*)
+!["Books Page"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-BooksPage.PNG)
 
 AddBooks Page
-!["AddBooks Page"](*)
+!["AddBooks Page"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-AddBookPage.PNG)
 
 BookDetails Page
-!["BookDetails Page"](*)
+!["BookDetails Page"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-BookDetailsPage.PNG)
 
 Search Page
-!["Search Page"](*)
+!["Search Page"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-SearchPage.PNG)
 
 Save Page
-!["Save Page"](*)
+!["Save Page"](https://github.com/egomatsushita/CC-Project-LibraryCollection/blob/master/Public/LibraryCollection-SavePage.PNG)
