@@ -46,7 +46,7 @@ public partial class Setup : System.Web.UI.Page
             SqlDataReader reader;
             reader = comm.ExecuteReader();
 
-            using (StreamWriter streamWriter = File.CreateText(@"C:\Users\egoma\Downloads\myCollection.txt"))
+            using (StreamWriter streamWriter = File.CreateText(@"C:\Users\Public\myCollection.txt"))
             {
                 streamWriter.WriteLine(">>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<");
                 streamWriter.WriteLine(">>>>>>>>>> Library Collection <<<<<<<<<<");
